@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const tripSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        required: false,
     },
     vehicle: {
         type: String,
@@ -22,7 +22,7 @@ const tripSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    eastTunnelExit: {
+    QHtunnelsExit: {
         type: String,
         required: true,
     },

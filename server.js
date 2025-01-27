@@ -7,6 +7,8 @@ const logger = require('morgan');
 // const tripRouter = require('./controllers/trips.js');
 // const router = require('./controllers/trips.js');
 const trip = require('./models/trip.js');
+const cors = require('cors');
+
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -14,6 +16,7 @@ mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
 });
 
+app.use(cors());
 app.use(express.json());
 // app.use('/trip, tripRouter');
 // app.use(logger('dev'));
@@ -22,6 +25,8 @@ app.use(express.json());
 
 // Create: add a trip
 app.post('/trip', async (req,res) => {
+    console.log(req.body);
+    
     const newEntry = await trip.create(req.body);
     res.json(newEntry)
 });
