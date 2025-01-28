@@ -25,9 +25,11 @@ app.use(express.json());
 
 // Create: add a trip
 app.post('/trip', async (req,res) => {
-    console.log(req.body);
+    // console.log(req.body);
     
     const newEntry = await trip.create(req.body);
+    console.log(newEntry);
+    
     res.json(newEntry)
 });
 
